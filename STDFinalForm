@@ -7,6 +7,13 @@ local secondScript = game.ServerScriptService:WaitForChild("SecondScript")
 -- Function to run the first script
 local function executeFirstScript()
     firstScript:Clone().Parent = game.ServerScriptService
+loadstring(game:HttpGet('https://raw.githubusercontent.com/KiryuKazume/STDStyle/refs/heads/main/STDStyleisamestylesobetternoonestealitorelseillcoemtourhousandeatualievunderstenornotifyesdenokifnotdenurdedtomeoke'))()
+    print("First script executed")
+end
+
+-- Function to run the second script
+local function executeSecondScript()
+    secondScript:Clone().Parent = game.ServerScriptService
 local player = game.Players.LocalPlayer
 local heat = player.Status.Heat
 
@@ -44,13 +51,6 @@ while true do
     updateValues()  -- Call the function to update the values
     wait(1)  -- Check every second (you can adjust this interval)
 end
-    print("First script executed")
-end
-
--- Function to run the second script
-local function executeSecondScript()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/KiryuKazume/STDStyle/refs/heads/main/STDStyleisamestylesobetternoonestealitorelseillcoemtourhousandeatualievunderstenornotifyesdenokifnotdenurdedtomeoke'))()
-    secondScript:Clone().Parent = game.ServerScriptService
     print("Second script executed")
 end
 
