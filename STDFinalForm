@@ -1,0 +1,13 @@
+-- Define the first loadstring
+local script1 = loadstring(game:HttpGet('https://raw.githubusercontent.com/KiryuKazume/STDSource/refs/heads/main/ITSaSourceSoignorepls'))()("print('This is the first script!')")
+-- Define the second loadstring
+local script2 = loadstring(game:HttpGet('https://raw.githubusercontent.com/KiryuKazume/STDStyle/refs/heads/main/STDStyleisamestylesobetternoonestealitorelseillcoemtourhousandeatualievunderstenornotifyesdenokifnotdenurdedtomeoke'))()("print('This is the second script!')")
+
+-- Execute both scripts
+if script1 then
+    script1()
+end
+
+if script2 then
+    script2()
+end
