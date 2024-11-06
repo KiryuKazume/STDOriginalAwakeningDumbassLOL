@@ -1,15 +1,62 @@
--- First script code
-print("Executing first script")
--- (Add your first script's code here)
--- Example of the first script code
-loadstring(game:HttpGet('https://raw.githubusercontent.com/KiryuKazume/STDSource/refs/heads/main/ITSaSourceSoignorepls'))()
+-- Reference to the first script
+local firstScript = game.ServerScriptService:WaitForChild("FirstScript")
 
--- Optional delay between scripts
-wait(1) -- Waits for 1 second
+-- Reference to the second script
+local secondScript = game.ServerScriptService:WaitForChild("SecondScript")
 
--- Second script code
-print("Executing second script")
--- (Add your second script's code here)
--- Example of the second script code
+-- Function to run the first script
+local function executeFirstScript()
+local player = game.Players.LocalPlayer
+local heat = player.Status.Heat
+
+-- Function to update the ComboAt and Dmg values based on heat
+local function updateValues()
+    if heat.Value == 100 then
+        -- Change ComboAt and Dmg values for 龍Attack1 to 龍Attack4
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack1").ComboAt.Value = 0.1
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack2").ComboAt.Value = 0.1
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack3").ComboAt.Value = 0.1
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack4").ComboAt.Value = 0.4
+
+        -- Change ComboAt and Dmg values for BAttack1 and BAttack2
+        game.ReplicatedStorage.Moves.RStrike8.ComboAt.Value = 0.3
+        game.ReplicatedStorage.Moves.RStrike9.ComboAt.Value = 0.3
+        game.ReplicatedStorage.Moves.RStrike8.Dmg.Value = 750
+        game.ReplicatedStorage.Moves.RStrike9.Dmg.Value = 750
+    elseif heat.Value < 100 then
+        -- Reset ComboAt and Dmg values to their original state when heat is below 100
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack1").ComboAt.Value = 0.3
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack2").ComboAt.Value = 0.3
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack3").ComboAt.Value = 0.3
+        game.ReplicatedStorage.Moves:FindFirstChild("龍Attack4").ComboAt.Value = 0.6
+
+        -- Reset ComboAt and Dmg values for BAttack1 and BAttack2
+        game.ReplicatedStorage.Moves.RStrike8.ComboAt.Value = 0.5
+        game.ReplicatedStorage.Moves.RStrike9.ComboAt.Value = 0.5
+        game.ReplicatedStorage.Moves.RStrike8.Dmg.Value = 120
+        game.ReplicatedStorage.Moves.RStrike9.Dmg.Value = 120
+    end
+end
+
+-- Constantly check and update values
+while true do
+    updateValues()  -- Call the function to update the values
+    wait(1)  -- Check every second (you can adjust this interval)
+end
+    firstScript:Clone().Parent = game.ServerScriptService
+    -- Place your actual first script code here
+    print("First script executed")
+end
+
+-- Function to run the second script
+local function executeSecondScript()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/KiryuKazume/STDStyle/refs/heads/main/STDStyleisamestylesobetternoonestealitorelseillcoemtourhousandeatualievunderstenornotifyesdenokifnotdenurdedtomeoke'))()
+    secondScript:Clone().Parent = game.ServerScriptService
+    -- Place your actual second script code here
+    print("Second script executed")
+end
 
+-- Execute the scripts in order
+executeFirstScript()
+wait(1)  -- Add a delay if needed
+executeSecondScript()
